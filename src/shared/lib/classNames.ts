@@ -1,10 +1,6 @@
-interface Mod {
-  [key: string]: boolean;
-}
-
 export const classNames = (
   className: string,
-  mods: Mod,
+  mods: Record<string, boolean>,
   additional: string[]
 ) => {
   return [

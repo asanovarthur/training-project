@@ -1,9 +1,7 @@
-import { Suspense } from "react";
-import { Route, Routes, Link } from "react-router-dom";
-import { MainPage } from "pages/main";
-import { AboutPage } from "pages/about";
+import { Link } from "react-router-dom";
 import { classNames } from "shared/lib/classNames";
 import { useTheme } from "./providers/ThemeProvider";
+import { AppRouter } from "./providers/router";
 import "./styles/index.scss";
 
 export const App = () => {
@@ -14,12 +12,7 @@ export const App = () => {
       <button onClick={toggleTheme}>Изменить тему</button>
       <Link to="/">Главная</Link>
       <Link to="/about">О сайте</Link>
-      <Suspense fallback={<div>Loading...</div>}>
-        <Routes>
-          <Route path="/" element={<MainPage />} />
-          <Route path="/about" element={<AboutPage />} />
-        </Routes>
-      </Suspense>
+      <AppRouter />
     </div>
   );
 };
